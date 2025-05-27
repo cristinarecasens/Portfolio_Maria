@@ -14,7 +14,7 @@ setInterval(() => {
 }, 3000);
 
 // SECCIÓ FOTOS
-const fotos = document.querySelectorAll('.fotos .foto');
+const fotos = document.querySelectorAll('.fotos-multi .foto');
 const lightbox = document.getElementById('lightbox');
 const lightboxImg = document.getElementById('lightbox-img');
 const closeBtn = document.getElementById('close-btn');

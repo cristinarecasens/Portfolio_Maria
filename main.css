@@ -133,10 +133,12 @@ nav a.active {
 
 .photos-content {
   padding-top: 60px; /* igual que la altura del nav */
+  padding-bottom: 80px;
 }
 
 .photos-content-multi {
   padding-top: 60px; /* igual que la altura del nav */
+  padding-bottom:80px;
 }
 
 .fotos {
@@ -155,6 +157,7 @@ nav a.active {
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   justify-content: center; /* Centra las imágenes en la fila */
   padding: 20px; /* Padding general alrededor */
+  margin-bottom: 80px;
 }
 
 .fotos-multi .foto{
@@ -168,6 +171,7 @@ nav a.active {
   transform: scale(1.1);
   z-index: 10;
   box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+  overflow: hidden;
 }
 
 .fotos .foto {
@@ -182,6 +186,7 @@ nav a.active {
   transform: scale(1.1);
   z-index: 10;
   box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+  overflow: hidden;
 }
 
 .repo {
@@ -290,10 +295,11 @@ nav a.active {
 }
 
 .about {
-    padding: 60px 20px;
+    padding: 20px 20px;
     max-width: 900px;
     margin: auto;
     text-align: center;
+    margin-bottom: 100px;
 }
 
 .about-container {
@@ -335,9 +341,9 @@ nav a.active {
   padding: 250px 20px;
   text-align: center;
   background-color: #000000;
+
   
 }
-
 
 .contact-section h2 {
   font-size: 2em;
@@ -379,8 +385,8 @@ footer {
   display: flex;
   justify-content: space-between; /* separa los párrafos a los extremos */
   align-items: center;            /* centra verticalmente */
-  padding: 10px 20px;
-  background-color: #222;
+  padding: 0px 20px;
+  background-color: #121212;
   color: white;
   position: fixed;
   bottom: 0;
@@ -473,13 +479,22 @@ footer {
     }
 
     .contact-section {
-      padding: 60px 20px;
+      padding: 50px 20px;
+      margin-bottom: 60px;
     }
 
     footer {
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start; /* evita que haya espacio innecesario */
+      gap: 0px;                    /* elimina espacio entre elementos */
+      padding: 5px 10px;           /* reduce el padding vertical */
+      height: auto;                /* permite que el footer se adapte al contenido */
+    }
+  
+    footer p {
+      margin: 2px 0;               /* reduce el margen entre párrafos */
+      text-align: center;
+    }
 
 }
