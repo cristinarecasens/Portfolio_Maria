@@ -105,16 +105,20 @@ nav a.active {
   background-position: center;
   background-repeat: no-repeat;
 
-  height: 100vh; /* Que ocupe toda la pantalla */
-  width: 100vw; 
+  height: 100vh;       /* Exactamente el alto visible */
+  width: 100vw;
+
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-end; /* Posiciona el texto abajo */
   align-items: center;
-  color: white; /* Para que el texto se vea si el fondo es oscuro */
+
+  color: white;
   text-align: center;
-  padding: 0;
+  padding: 60px; /* Pequeño espacio interno sin provocar scroll */
+  box-sizing: border-box; /* Asegura que el padding se incluya dentro del 100vh */
   margin: 0;
+  overflow: hidden; /* evita que nada se desborde */
 }
 
 .inici h1 {
