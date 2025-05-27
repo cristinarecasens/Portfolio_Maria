@@ -91,11 +91,16 @@ nav a.active {
   font-family: "Gabriola";
 }
 
-
+    .logo-img {
+      max-width: 150px; 
+      width: 100%;
+      height: auto;
+      display: block;
+    }
 
 
 .inici {
-  background-image: url('images/fotografo-paisajes.jpg');
+  background-image: url('images/7.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -126,6 +131,10 @@ nav a.active {
   padding-top: 60px; /* igual que la altura del nav */
 }
 
+.photos-content-multi {
+  padding-top: 60px; /* igual que la altura del nav */
+}
+
 .fotos {
   display: flex;
   flex-wrap: wrap;
@@ -135,6 +144,27 @@ nav a.active {
   padding: 20px; /* Padding general alrededor */
 }
 
+.fotos-multi {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px; /* Espacio entre imágenes */
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  justify-content: center; /* Centra las imágenes en la fila */
+  padding: 20px; /* Padding general alrededor */
+}
+
+.fotos-multi .foto{
+  width: 350px; /* ancho fijo o relativo */
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  object-fit: cover; /* para que las imágenes mantengan proporción */
+}
+
+.fotos-multi .foto:hover{
+  transform: scale(1.1);
+  z-index: 10;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+}
 
 .fotos .foto {
   width: 350px; /* ancho fijo o relativo */
@@ -301,7 +331,9 @@ nav a.active {
   padding: 250px 20px;
   text-align: center;
   background-color: #000000;
+  
 }
+
 
 .contact-section h2 {
   font-size: 2em;
@@ -373,6 +405,8 @@ footer {
       transform: none; /* quita el translateY para que no se mueva */
       z-index: 1001;   /* que esté encima del menú desplegable */
     }
+
+
 
     .menu-toggle {
       display: flex;
