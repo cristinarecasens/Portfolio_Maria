@@ -434,6 +434,10 @@ footer {
       height: auto !important;
     }
 
+    .contact-section {
+      padding: 60px 20px;
+    }
+
     footer {
     flex-direction: column;
     justify-content: center;
