@@ -1,0 +1,437 @@
+body {
+    font-family: 'Montserrat Light', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #000000;
+    color: #ffffff;
+    scroll-behavior: smooth;
+
+}
+
+header {
+    text-align: center;
+    padding: 400px;
+    background: linear-gradient(135deg, #99b8cd, #99b8cd);
+    color: #333;
+    border-bottom: 5px solid #99b8cd;
+}
+
+nav {
+    position: fixed;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgb(0, 0, 0);
+    padding: 10px 40px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    width: 100%;
+    color: #ffffff;
+}
+
+nav a {
+    text-decoration: none;
+    color: #ffffff;
+    padding: 10px 20px;
+    border-radius: 20px;
+    font-weight: 400;
+    text-align: center;
+    min-width: 100px;
+    display: inline-block;
+    transition: background 0.3s, color 0.3s;
+}
+
+nav a:hover {
+    font-weight: bold; /* o usar transform: scale(...) si prefieres */
+}
+
+nav a.active {
+    color: white;
+    font-weight: bold;
+}
+
+/* Botón hamburguesa oculto por defecto */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 5px;
+}
+
+.menu-toggle .bar {
+  width: 25px;
+  height: 3px;
+  background-color: #ffffff;
+  border-radius: 2px;
+  align-items:right;
+}
+
+/* NUEVO: Estilo por defecto en escritorio */
+.menu-content {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
+
+.nav-name {
+  position: absolute;
+  left: 50px;
+  color:rgb(179, 179, 179);
+  top: 50%;
+  transform: translateY(-50%);
+  padding-left: 10px;
+  font-size: 1.2rem;
+  white-space: nowrap;
+  max-width: 140px;   /* o ajusta para que no se salga */
+  overflow: visible;  /* asegúrate que no se corte */
+  text-overflow: ellipsis; /* opcional, para recortar con "..." si muy largo */
+  font-family: "Gabriola";
+}
+
+
+
+
+.inici {
+  background-image: url('images/fotografo-paisajes.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  height: 100vh; /* Que ocupe toda la pantalla */
+  width: 100vw; 
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white; /* Para que el texto se vea si el fondo es oscuro */
+  text-align: center;
+  padding: 0;
+  margin: 0;
+}
+
+.inici h1 {
+  margin-bottom: 0.2em; /* reduce el margen inferior del h1 */
+  font-size:60px;
+}
+
+.inici h3 {
+  margin-top: 0; /* elimina margen superior del h3 */
+  color:rgb(194, 194, 194)
+}
+
+.photos-content {
+  padding-top: 60px; /* igual que la altura del nav */
+}
+
+.fotos {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px; /* Espacio entre imágenes */
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  justify-content: center; /* Centra las imágenes en la fila */
+  padding: 20px; /* Padding general alrededor */
+}
+
+
+.fotos .foto {
+  width: 350px; /* ancho fijo o relativo */
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  border-radius: 8px;
+  object-fit: cover; /* para que las imágenes mantengan proporción */
+}
+
+.fotos .foto:hover {
+  transform: scale(1.1);
+  z-index: 10;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+}
+
+.repo {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px; /* Espacio entre imágenes */
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  justify-content: center; /* Centra las imágenes en la fila */
+  padding: 20px; /* Padding general alrededor */
+  margin-bottom: 100px;
+}
+
+.repo .item {
+  width: 350px;
+  cursor: pointer;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: transform 0.3s ease;
+  overflow: hidden;
+}
+
+.img-wrapper {
+  width: 100%;
+  height: 700px;
+  overflow: hidden; /* Impide que la imagen se expanda fuera de su espacio */
+  border-radius: 8px;
+  position: relative;
+}
+
+.img-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+  display: block;
+}
+
+.img-wrapper:hover img {
+  transform: scale(1.1);
+}
+
+
+#lightbox {
+  display: none;
+  position: fixed;
+  top: 0; 
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0,0,0,0.8);
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  cursor: default;
+  padding: 30px;
+  box-sizing: border-box
+}
+
+
+#lightbox-img {
+  max-width: calc(100vw - 60px);  /* ancho total menos 30px por lado */
+  height: auto;                   /* altura automática para respetar proporción */
+  max-height: none;               /* quitar limitación de altura */
+  border-radius: 8px;
+  object-fit: contain;
+}
+
+#close-btn {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  font-size: 30px;
+  color: white;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  z-index: 1010;
+}
+
+#prev-btn {
+  position: absolute;
+  top: 50%;
+  left: 20px;
+  transform: translateY(-50%);
+  font-size: 40px;
+  color: white;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  z-index: 1010;
+}
+
+#next-btn {
+  position: absolute;
+  top: 50%;
+  right: 20px;
+  transform: translateY(-50%);
+  font-size: 40px;
+  color: white;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  z-index: 1010;
+}
+
+.about {
+    padding: 60px 20px;
+    max-width: 900px;
+    margin: auto;
+    text-align: center;
+}
+
+.about-container {
+    display: flex;
+    align-items: center; 
+    justify-content: flex-start; 
+    gap: 20px; 
+    max-width: 1200px; 
+    margin: 0 auto; 
+    padding: 0 20px; 
+}
+.about-image {
+    width: 250px;  
+    height: 400px;  
+    overflow: hidden; 
+}
+
+.about-image img {
+    width: 100%;  
+    height: 100%;  
+    object-fit: cover;  
+}
+
+.about-text {
+    text-align: justify;  
+    max-width: 60%; 
+    line-height: 1.5;
+}
+
+.about-content{
+    padding-top: 100px;
+}
+
+.about-text h1{
+    color:rgb(155, 155, 155)
+}
+
+.contact-section {
+  padding: 60px 20px;
+  text-align: center;
+  background-color: #000000;
+}
+
+.contact-section h2 {
+  font-size: 2em;
+  margin-bottom: 40px;
+}
+
+.contact-cards {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.contact-card {
+  background: rgb(0, 0, 0);
+  border: 1px solid #d3d3d3;
+  border-radius: 12px;
+  padding: 20px 30px;
+  width: 280px;
+  text-decoration: none;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  transition: box-shadow 0.3s;
+}
+
+.contact-card:hover {
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.contact-card img {
+  width: 30px;
+  height: 30px;
+}
+
+
+footer {
+  display: flex;
+  justify-content: space-between; /* separa los párrafos a los extremos */
+  align-items: center;            /* centra verticalmente */
+  padding: 10px 20px;
+  background-color: #222;
+  color: white;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  box-sizing: border-box; /* para que padding no haga overflow */
+  font-size:14px;
+}
+
+/* Responsive: ocultar menu-content y mostrar botón */
+@media (max-width: 1000px) {
+    nav {
+      flex-wrap: wrap;
+      justify-content: flex-start; /* o space-between si quieres */
+      padding: 10px 20px;
+      color: white;
+      display: flex;
+      align-items: center;
+      padding-right: 20px;
+    }
+
+    .nav-name {
+      position: fixed;
+      top: 10px;       /* fija la distancia arriba */
+      left: 40px;      /* fija la distancia desde la izquierda, igual que en desktop */
+      transform: none; /* quita el translateY para que no se mueva */
+      z-index: 1001;   /* que esté encima del menú desplegable */
+    }
+
+    .menu-toggle {
+      display: flex;
+      justify-content: center; /* centra los tres puntos dentro del botón */
+      align-items: center;
+      margin-left: auto;       /* empuja el botón a la derecha */
+      margin-right:20px;
+      color: white;
+      /* Quita width: 100%; */
+    }
+
+    /* Estilo vertical para móvil */
+    .menu-content {
+      display: none;
+      flex-direction: column;
+      width: 100%;
+      align-items: center;
+      gap: 10px;
+    }
+
+    nav.show .menu-content {
+      display: flex;
+    }
+
+    .menu-content a {
+      padding: 10px 0;
+      width: 100%;
+      text-align: center;
+    }
+
+    .about {
+      max-width: 100% !important; /* que no limite ancho */
+      padding-left: 10px !important;
+      padding-right: 10px !important;
+    }
+
+    .about-container {
+      max-width: 100% !important; /* que ocupe todo el ancho posible */
+      padding-left: 0 !important;
+      padding-right: 0 !important;
+      flex-direction: column !important;
+      align-items: center !important;
+      gap: 15px !important;
+    }
+
+    .about-text {
+      max-width: 100% !important; /* ocupa todo el ancho */
+      text-align: center !important;
+      padding: 0 10px !important;
+    }
+
+    .about-image {
+      width: 100% !important;
+      height: auto !important;
+    }
+
+    .about-image img {
+      width: 100% !important;
+      height: auto !important;
+    }
+
+}
