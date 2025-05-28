@@ -582,7 +582,7 @@ footer p {
     }
 
     .menu-content a {
-      padding: 0;
+      padding: 10px;
       width: 100%;
       text-align: center;
     }
@@ -623,13 +623,13 @@ footer p {
       padding-right: 0 !important;
       flex-direction: column !important;
       align-items: center !important;
-      gap: 15px !important;
+      
     }
 
     .about-text {
       max-width: 100% !important; /* ocupa todo el ancho */
       text-align: center !important;
-      padding: 0 10px !important;
+      padding: 0  !important;
     }
 
     .about-image {
