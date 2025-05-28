@@ -1,3 +1,13 @@
+// Bloquear click dret
+document.addEventListener('contextmenu', event => event.preventDefault());
+
+// Bloquear Ctrl+C
+document.addEventListener('keydown', event => {
+  if ((event.ctrlKey || event.metaKey) && event.key.toLowerCase() === 'c') {
+    event.preventDefault();
+  }
+});
+
 // SECCIÓ INICI
 const images = [
   'images/fotografo-paisajes.jpg',
@@ -14,7 +24,7 @@ setInterval(() => {
 }, 3000);
 
 // SECCIÓ FOTOS
-const fotos = document.querySelectorAll('.fotos-multi .foto');
+const fotos = document.querySelectorAll('.fotos-multi .foto, .fotos-multi .foto_v');
 const lightbox = document.getElementById('lightbox');
 const lightboxImg = document.getElementById('lightbox-img');
 const closeBtn = document.getElementById('close-btn');

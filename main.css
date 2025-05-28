@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+
 body {
     font-family: 'Montserrat Light', sans-serif;
     margin: 0;
@@ -10,16 +12,24 @@ body {
 
 header {
     text-align: center;
-    padding: 400px;
+    padding: 400px 0;
     background: linear-gradient(135deg, #99b8cd, #99b8cd);
     color: #333;
     border-bottom: 5px solid #99b8cd;
 }
 
+
+html {
+    overflow-y: scroll;
+}
+
+
 nav {
+    width: 100vw;
     position: fixed;
-    left: 50%;
-    transform: translateX(-50%);
+    top: 0;
+    left: 0;
+    width: 100%;
     background: rgb(0, 0, 0);
     padding: 10px 40px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -28,11 +38,11 @@ nav {
     align-items: center;
     justify-content: center;
     z-index: 1000;
-    width: 100%;
     color: #ffffff;
 }
 
 nav a {
+    
     text-decoration: none;
     color: #ffffff;
     padding: 10px 20px;
@@ -51,6 +61,78 @@ nav a:hover {
 nav a.active {
     color: white;
     font-weight: bold;
+}
+
+.nav-name {
+  position: absolute;
+  left: 50px;
+  color:rgb(179, 179, 179);
+  top: 50%;
+  transform: translateY(-50%);
+  padding-left: 10px;
+  font-size: 1.2rem;
+  white-space: nowrap;
+  max-width: 140px;   /* o ajusta para que no se salga */
+  overflow: visible;  /* asegúrate que no se corte */
+  text-overflow: ellipsis; /* opcional, para recortar con "..." si muy largo */
+  font-family: "Pacifico";
+}
+
+.nav-icons {
+  position: fixed;
+  top: 10px;
+  right: 30px;
+  display: flex;    /* Menos espacio entre iconos */
+  align-items: center;
+  z-index: 1000;
+}
+
+.nav-icons a {
+  min-width: 20px;
+  color: white;
+  text-decoration: none;
+  transition: color 0.3s ease;
+  font-size: 12px;
+  padding: 2px;        /* Opcional, para que el área clickeable no quede tan pequeña */
+}
+
+.nav-icons a:hover {
+  color: grey;
+}
+
+.nav-icons svg {
+  width: 25px;
+  height: 25px;
+  display: block;
+}
+
+.icon-whatsapp {
+  display: inline-block;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.icon-whatsapp svg {
+  display: block;
+  width: 22px;
+  height: 22px;
+}
+
+
+/* Cambiamos el fondo al hacer hover */
+.icon-whatsapp svg .icon-background {
+  transition: fill 0.3s ease;
+  fill: white; /* color inicial fondo */
+}
+
+.icon-whatsapp:hover svg .icon-background {
+  fill: grey; /* color fondo al hacer hover */
+}
+
+/* El teléfono negro no cambia */
+.icon-whatsapp svg .icon-phone {
+  fill: black;
+  transition: none; /* sin transición ni cambio */
 }
 
 /* Botón hamburguesa oculto por defecto */
@@ -76,28 +158,6 @@ nav a.active {
   align-items: center;
 }
 
-.nav-name {
-  position: absolute;
-  left: 50px;
-  color:rgb(179, 179, 179);
-  top: 50%;
-  transform: translateY(-50%);
-  padding-left: 10px;
-  font-size: 1.2rem;
-  white-space: nowrap;
-  max-width: 140px;   /* o ajusta para que no se salga */
-  overflow: visible;  /* asegúrate que no se corte */
-  text-overflow: ellipsis; /* opcional, para recortar con "..." si muy largo */
-  font-family: "Gabriola";
-}
-
-    .logo-img {
-      max-width: 150px; 
-      width: 100%;
-      height: auto;
-      display: block;
-    }
-
 
 .inici {
   background-image: url('images/7.jpg');
@@ -105,20 +165,24 @@ nav a.active {
   background-position: center;
   background-repeat: no-repeat;
 
-  height: 100vh;       /* Exactamente el alto visible */
-  width: 100vw;
+  width: 100vw; /* ancho completo viewport */
+
+  /* Ajustamos la altura considerando el espacio que ocupa el menú y el footer.
+     Si por ejemplo el menú y footer ocupan 100px en total, 
+     restamos eso del viewport height */
+  height: calc(100vh - 100px);
 
   display: flex;
   flex-direction: column;
-  justify-content: flex-end; /* Posiciona el texto abajo */
+  justify-content: flex-end;
   align-items: center;
 
   color: white;
   text-align: center;
-  padding: 60px; /* Pequeño espacio interno sin provocar scroll */
-  box-sizing: border-box; /* Asegura que el padding se incluya dentro del 100vh */
+  padding: 50px 20px; /* reducimos el padding lateral para evitar scroll horizontal */
+  box-sizing: border-box;
   margin: 0;
-  overflow: hidden; /* evita que nada se desborde */
+  overflow: hidden;
 }
 
 .inici h1 {
@@ -131,14 +195,34 @@ nav a.active {
   color:rgb(194, 194, 194)
 }
 
+main {
+  height: calc(100vh - 160px); /* espacio disponible entre nav y footer */
+  overflow-y: auto; /* permitir scroll solo dentro del main si es necesario */
+}
+
 .photos-content {
-  padding-top: 60px; /* igual que la altura del nav */
+  padding-top: 20px;
   padding-bottom: 80px;
 }
 
 .photos-content-multi {
-  padding-top: 60px; /* igual que la altura del nav */
+  padding-top: 20px;
   padding-bottom:80px;
+}
+
+h2{
+  text-align: center;
+}
+h4{
+  text-align: center;
+}
+
+p {
+    max-width: 1000px; /* Limita el ancho */
+    margin: 0 auto; /* Centra el párrafo */
+    text-align: justify; /* Justifica el texto */
+    padding-bottom:12px;
+    line-height: 1.5;
 }
 
 .fotos {
@@ -147,7 +231,7 @@ nav a.active {
   gap: 20px; /* Espacio entre imágenes */
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   justify-content: center; /* Centra las imágenes en la fila */
-  padding: 20px; /* Padding general alrededor */
+
 }
 
 .fotos-multi {
@@ -156,18 +240,32 @@ nav a.active {
   gap: 20px; /* Espacio entre imágenes */
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   justify-content: center; /* Centra las imágenes en la fila */
-  padding: 20px; /* Padding general alrededor */
-  margin-bottom: 80px;
+  margin-bottom: 20px;
+  margin-top: 20px;
 }
 
 .fotos-multi .foto{
-  width: 350px; /* ancho fijo o relativo */
+  width: 500px; /* ancho fijo o relativo */
   cursor: pointer;
   transition: transform 0.3s ease;
   object-fit: cover; /* para que las imágenes mantengan proporción */
 }
 
 .fotos-multi .foto:hover{
+  transform: scale(1.1);
+  z-index: 10;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+  overflow: hidden;
+}
+
+.fotos-multi .foto_v{
+  width: 230px; /* ancho fijo o relativo */
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  object-fit: cover; /* para que las imágenes mantengan proporción */
+}
+
+.fotos-multi .foto_v:hover{
   transform: scale(1.1);
   z-index: 10;
   box-shadow: 0 4px 8px rgba(0,0,0,0.3);
@@ -190,17 +288,14 @@ nav a.active {
 }
 
 .repo {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px; /* Espacio entre imágenes */
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  justify-content: center; /* Centra las imágenes en la fila */
-  padding: 20px; /* Padding general alrededor */
-  margin-bottom: 100px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* cambia aquí el minmax */
+  gap: 20px;
+  padding: 20px;
+  box-sizing: border-box;
 }
 
 .repo .item {
-  width: 350px;
   cursor: pointer;
   border-radius: 5px;
   display: flex;
@@ -208,12 +303,19 @@ nav a.active {
   align-items: center;
   transition: transform 0.3s ease;
   overflow: hidden;
+  /* Quitamos el width fijo */
+}
+
+.repo .item p {
+  margin-top: 15px; /* o el valor que prefieras */
+  font-size: 1rem;
+  text-align: center;
 }
 
 .img-wrapper {
   width: 100%;
-  height: 700px;
-  overflow: hidden; /* Impide que la imagen se expanda fuera de su espacio */
+  aspect-ratio: 3 / 4; /* o la proporción que quieras */
+  overflow: hidden;
   border-radius: 8px;
   position: relative;
 }
@@ -238,15 +340,14 @@ nav a.active {
   left: 0;
   width: 100vw;
   height: 100vh;
-  background: rgba(0,0,0,0.8);
+  background: rgba(0,0,0,0.9);
   justify-content: center;
   align-items: center;
   z-index: 1000;
   cursor: default;
   padding: 30px;
-  box-sizing: border-box
+  box-sizing: border-box;
 }
-
 
 #lightbox-img {
   max-width: calc(100vw - 60px);  /* ancho total menos 30px por lado */
@@ -254,6 +355,7 @@ nav a.active {
   max-height: none;               /* quitar limitación de altura */
   border-radius: 8px;
   object-fit: contain;
+  max-height:calc(100vh);
 }
 
 #close-btn {
@@ -292,6 +394,33 @@ nav a.active {
   border: none;
   cursor: pointer;
   z-index: 1010;
+}
+
+.recerca-section {
+  padding-top: 100px;
+  text-align: center;
+}
+
+.image-wrapper {
+  display: inline-block;
+  overflow: hidden; /* Esto corta el exceso del zoom */
+  border-radius: 8px; /* Opcional: redondear bordes */
+}
+
+.image-wrapper img {
+  width: 600px;
+  height: auto;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.image-wrapper img:hover {
+  transform: scale(1.05);
+}
+
+.recerca-section p {
+  margin-top: 20px;
+  text-align: center;
 }
 
 .about {
@@ -336,6 +465,8 @@ nav a.active {
 .about-text h1{
     color:rgb(155, 155, 155)
 }
+
+
 
 .contact-section {
   padding: 250px 20px;
@@ -395,6 +526,13 @@ footer {
   box-sizing: border-box; /* para que padding no haga overflow */
   font-size:14px;
 }
+footer p {
+  all: unset; /* elimina casi todos los estilos heredados */
+  display: inline; /* o inline-block, o block según necesites */
+  color: inherit;
+  font: inherit;
+  margin:10px;
+}
 
 /* Responsive: ocultar menu-content y mostrar botón */
 @media (max-width: 1000px) {
@@ -411,19 +549,17 @@ footer {
     .nav-name {
       position: fixed;
       top: 10px;       /* fija la distancia arriba */
-      left: 40px;      /* fija la distancia desde la izquierda, igual que en desktop */
+      left: 20px;      /* fija la distancia desde la izquierda, igual que en desktop */
       transform: none; /* quita el translateY para que no se mueva */
       z-index: 1001;   /* que esté encima del menú desplegable */
     }
-
-
 
     .menu-toggle {
       display: flex;
       justify-content: center; /* centra los tres puntos dentro del botón */
       align-items: center;
       margin-left: auto;       /* empuja el botón a la derecha */
-      margin-right:20px;
+      margin-right:30px;
       color: white;
       /* Quita width: 100%; */
     }
@@ -446,6 +582,20 @@ footer {
       width: 100%;
       text-align: center;
     }
+
+  .nav-icons {
+    display: none;
+  }
+    
+    p {
+    
+    margin: 30px; /* Centra el párrafo */
+    text-align: justify; /* Justifica el texto */   
+}
+
+}
+
+@media (max-width: 600px) {
 
     .about {
       max-width: 100% !important; /* que no limite ancho */
@@ -496,5 +646,11 @@ footer {
       margin: 2px 0;               /* reduce el margen entre párrafos */
       text-align: center;
     }
+
+  .repo {
+  padding-bottom:80px;             /* centrado horizontal */
+  }
+  
+
 
 }
