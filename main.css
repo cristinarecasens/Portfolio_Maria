@@ -546,7 +546,7 @@ footer p {
       color: white;
       display: flex;
       align-items: center;
-      padding-right: 20px;
+      
     }
 
     .nav-name {
@@ -562,7 +562,7 @@ footer p {
       justify-content: center; /* centra los tres puntos dentro del botón */
       align-items: center;
       margin-left: auto;       /* empuja el botón a la derecha */
-      margin-right:30px;
+      margin-right: 30px;
       color: white;
       /* Quita width: 100%; */
     }
@@ -578,10 +578,11 @@ footer p {
 
     nav.show .menu-content {
       display: flex;
+      width:90vw;
     }
 
     .menu-content a {
-      padding: 10px 0;
+      padding: 0;
       width: 100%;
       text-align: center;
     }
@@ -599,6 +600,16 @@ footer p {
 }
 
 @media (max-width: 600px) {
+
+
+    .inici{
+      padding-bottom: 60px;
+    }
+
+
+    .fotos-multi .foto{
+      width: 90vw;
+    }
 
     .about {
       max-width: 100% !important; /* que no limite ancho */
@@ -655,10 +666,19 @@ footer p {
   }
 
   .recerca-section {
+    padding:20px;
   padding-top: 100px;
   text-align: center;
-  padding:20px;
+  
 }
+
+.image-wrapper img {
+  width:90vw;
+  height: auto;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
   
 
 
