@@ -242,7 +242,7 @@ p {
   justify-content: center; /* Centra las imágenes en la fila */
   margin-bottom: 20px;
   margin-top: 20px;
-  padding-bottom:30px;
+  padding-bottom:40px;
 }
 
 .fotos-multi .foto{
@@ -294,7 +294,7 @@ p {
   gap: 20px;
   padding: 20px;
   box-sizing: border-box;
-  padding-bottom:30px;
+  padding-bottom:40px;
 }
 
 .repo .item {
@@ -423,7 +423,7 @@ p {
 .recerca-section p {
   margin-top: 20px;
   text-align: center;
-  padding-bottom: 30px;
+  padding-bottom: 40px;
 }
 
 .about {
