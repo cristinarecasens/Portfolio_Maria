@@ -555,6 +555,7 @@ footer p {
       left: 20px;      /* fija la distancia desde la izquierda, igual que en desktop */
       transform: none; /* quita el translateY para que no se mueva */
       z-index: 1001;   /* que esté encima del menú desplegable */
+      padding: 5px;
     }
 
     .menu-toggle {
@@ -564,6 +565,7 @@ footer p {
       margin-left: auto;       /* empuja el botón a la derecha */
       margin-right: 30px;
       color: white;
+      padding:5px;
       /* Quita width: 100%; */
     }
 
