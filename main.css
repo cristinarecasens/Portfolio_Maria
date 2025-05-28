@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Merriweather&display=swap');
 
 body {
     font-family: 'Montserrat Light', sans-serif;
@@ -75,7 +75,7 @@ nav a.active {
   max-width: 140px;   /* o ajusta para que no se salga */
   overflow: visible;  /* asegúrate que no se corte */
   text-overflow: ellipsis; /* opcional, para recortar con "..." si muy largo */
-  font-family: "Pacifico";
+  font-family: "Merriweather";
 }
 
 .nav-icons {
