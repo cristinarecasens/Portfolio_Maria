@@ -170,7 +170,7 @@ nav a.active {
   /* Ajustamos la altura considerando el espacio que ocupa el menú y el footer.
      Si por ejemplo el menú y footer ocupan 100px en total, 
      restamos eso del viewport height */
-  height: calc(100vh - 100px);
+  height: calc(100vh - 40px);
 
   display: flex;
   flex-direction: column;
@@ -196,7 +196,7 @@ nav a.active {
 }
 
 main {
-  height: calc(100vh - 160px); /* espacio disponible entre nav y footer */
+  height: calc(100vh - 180px); /* espacio disponible entre nav y footer */
   overflow-y: auto; /* permitir scroll solo dentro del main si es necesario */
 }
 
@@ -242,6 +242,7 @@ p {
   justify-content: center; /* Centra las imágenes en la fila */
   margin-bottom: 20px;
   margin-top: 20px;
+  padding-bottom:30px;
 }
 
 .fotos-multi .foto{
@@ -293,6 +294,7 @@ p {
   gap: 20px;
   padding: 20px;
   box-sizing: border-box;
+  padding-bottom:30px;
 }
 
 .repo .item {
@@ -421,6 +423,7 @@ p {
 .recerca-section p {
   margin-top: 20px;
   text-align: center;
+  padding-bottom: 30px;
 }
 
 .about {
@@ -535,7 +538,7 @@ footer p {
 }
 
 /* Responsive: ocultar menu-content y mostrar botón */
-@media (max-width: 1000px) {
+@media (max-width: 1200px) {
     nav {
       flex-wrap: wrap;
       justify-content: flex-start; /* o space-between si quieres */
@@ -650,6 +653,12 @@ footer p {
   .repo {
   padding-bottom:80px;             /* centrado horizontal */
   }
+
+  .recerca-section {
+  padding-top: 100px;
+  text-align: center;
+  padding:20px;
+}
   
 
 
