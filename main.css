@@ -179,7 +179,7 @@ nav a.active {
 
   color: white;
   text-align: center;
-  padding: 50px 20px; /* reducimos el padding lateral para evitar scroll horizontal */
+  padding: 10px 20px; /* reducimos el padding lateral para evitar scroll horizontal */
   box-sizing: border-box;
   margin: 0;
   overflow: hidden;
